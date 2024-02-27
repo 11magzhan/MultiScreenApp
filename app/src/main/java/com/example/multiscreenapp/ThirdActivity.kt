@@ -3,6 +3,7 @@ package com.example.multiscreenapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.multiscreenapp.databinding.ActivityThirdBinding
 
 class ThirdActivity : AppCompatActivity() {
@@ -11,6 +12,7 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i("ThirdActivity", "onCreate")
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -27,7 +29,31 @@ class ThirdActivity : AppCompatActivity() {
     }
 
     private fun navigateBack() {
-        val intent = Intent(this, SecondActivity::class.java)
-        startActivity(intent)
+       finish()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("ThirdActivity", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("ThirdActivity", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("ThirdActivity", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("ThirdActivity", "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("ThirdActivity", "onDestroy")
     }
 }
